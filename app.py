@@ -1,7 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="Napho Lab KPI Center", page_icon="🔬", layout="wide")
+# บังคับให้เปิด Sidebar กางออกเสมอ
+st.set_page_config(
+    page_title="Napho Lab KPI Center", 
+    page_icon="🔬", 
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 st.title("🔬 Executive Command Center: ตัวชี้วัดคุณภาพ 10 หัวข้อ")
 st.caption("กลุ่มงานเทคนิคการแพทย์ โรงพยาบาลนาโพธิ์")
@@ -50,6 +56,3 @@ with c8:
 with c9:
     val = latest.get("FT3_Redundant_Reduction_Pct", 95.0) if latest is not None else 95.0
     st.metric("📉 9. ลดการสั่ง FT3 ซ้ำซ้อน", f"{val:.1f}%", delta="เป้าหมาย > 90%")
-
-st.markdown("---")
-st.info("👈 **การเปลี่ยนหน้า:** คลิกเลือกเมนู **Data Input** หรือ **app** ที่แถบ Sidebar ด้านซ้ายมือได้เลยครับ")
